@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Project Euler App {% endblock %}
+
+
+
+{% block content %} 
+<form action="/Problems/{{ problem }}?paramsReq=True" method = "POST">
+    <p>{{parameters}}<input type = "text" name = "params" /></p>
+</form>
+{% endblock %}

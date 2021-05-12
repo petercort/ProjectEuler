@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %} Project Euler App {% endblock %}
+
+{% block content %} 
+ 	<ul>{% for Problem in allProblems %}
+	  	<li> <a href='/Problems/{{ Problem[0] }}?paramsReq={{ Problem[3] }}&params=""'> 
+	  		<h4>{{ Problem[1] }} </h4>
+	  	</a>
+	  	Description: {{ Problem[2] }}
+	  	</li> 
+	{% endfor %} </ul>
+{% endblock %}
