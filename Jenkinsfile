@@ -1,10 +1,9 @@
-projectname = ProjectEuler
+def projectname = ProjectEuler
 
 pipeline {
     agent {
 		any
     }
-
     stages {
     	stage('Build') {
     		steps{ 
