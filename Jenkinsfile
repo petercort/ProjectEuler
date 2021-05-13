@@ -2,20 +2,23 @@ projectname = ProjectEuler
 
 pipeline {
     agent {
-		checkout scm
-
-	    def customImage = docker.build("{$projectname}:${env.BUILD_ID}")
-
-	    customImage.inside {
-	        sh 'curl localhost'
-	    }
+		any
     }
 
     stages {
+    	stage('Build') {
+    		steps{ 
+    			script {
+					def customImage = docker.build("{$projectname}:${env.BUILD_ID}")
+				}
+			}
+    	}
         stage('Test') {
-            steps {
-                sh 'echo "hi"'
-            }
+        	steps {
+        		customImage.inside {
+	        		sh 'curl localhost'
+	    		}
+        	}	
         }
     }
 }
