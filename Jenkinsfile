@@ -6,7 +6,8 @@ pipeline {
     	stage('Build') {
     		steps{ 
     			script {
-					def customImage = docker.build("{$projectname}:${env.BUILD_ID}")
+    				sh ('ls -l')
+					def customImage = docker.build("$projectname:${env.BUILD_ID}")
 				}
 			}
     	}
