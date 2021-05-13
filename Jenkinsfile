@@ -1,4 +1,4 @@
-def projectname = ProjectEuler
+def projectname = "ProjectEuler"
 
 pipeline {
     agent any
