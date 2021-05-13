@@ -14,9 +14,11 @@ pipeline {
     	}
         stage('Test') {
         	steps {
-        		customImage.inside {
-	        		sh 'curl localhost'
-	    		}
+        		script {
+        			customImage.inside {
+	        			sh 'curl localhost'
+	    			}
+        		}
         	}	
         }
     }
